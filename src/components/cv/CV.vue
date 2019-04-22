@@ -1,5 +1,5 @@
 <template>
-  <div class="cv">
-    <h1>This is an cv page</h1>
-  </div>
+  <v-container>
+    <h1>This is cv page</h1>
+  </v-container>
 </template>
