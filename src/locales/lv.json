@@ -1,0 +1,38 @@
+{
+  "message": "Projekti jāveido vienkārši izstrādē un lietošanā.",
+  "itsme": "Gints, mans teiciens :)",
+  "about.message": "Šī ir VUE demo aplikācija, tā demonstrē dažādas VUE aplikācijas un tās piegādes un testēšanas nianses, e.t.c.",
+  "about.button": "Izejas kods GitLab",
+  "sidebartoggle": "Sānjoslas slēdzis",
+  "main.operations": "Darbības",
+  "menu.home": "Galvenā lapa",
+  "menu.employee": "Darbinieki",
+  "menu.about": "Par programmu",
+  "auth.sigin": "Pieslēgties",
+  "auth.username": "Lietotāja vārds",
+  "auth.email": "E-pasts",
+  "auth.password": "Parole",
+  "auth.password2": "Parole atkārtoti",
+  "auth.fullName": "Vārds Uzvārds",
+  "auth.login": "Pieslēgties",
+  "auth.register": "Izveidot kontu",
+  "auth.Unauthorized": "Pieslēgšanās neizdevās",
+  "auth.regfail": "Kļūda izveidojot lietotāju",
+  "employee.fields.firstname": "Vārds",
+  "employee.fields.lastname": "Uzvārds",
+  "employee.fields.description": "Apraksts",
+  "$vuetify": {
+    "dataIterator": {
+      "rowsPerPageText": "Vienības lapā:",
+      "rowsPerPageAll": "Visas",
+      "pageText": "{0}-{1} no {2}",
+      "noResultsText": "Nav atrasti ieraksti",
+      "nextPage": "Nākamā lapa",
+      "prevPage": "Iepriekšējā lapa"
+    },
+    "dataTable": {
+      "rowsPerPageText": "Rindas lapā:"
+    },
+    "noDataText": "Nav datu"
+  }
+}

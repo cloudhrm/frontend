@@ -1,3 +1,38 @@
 {
-  "message": "hello i18n !!"
+  "message": "Projects should be easy to develop for developers and easy to use for users.",
+  "itsme": "Gints, it's me :)",
+  "about.message": "This is VUE demo app, including all interesting stuff it could have, like different tests, vuetify for style, e.t.c.",
+  "about.button": "Check project source at GitLab",
+  "sidebartoggle": "Toggle sidebar",
+  "main.operations": "Operations",
+  "menu.home": "Home",
+  "menu.about": "About",
+  "menu.employee": "Employees",
+  "auth.sigin": "Sign In",
+  "auth.username": "User Name",
+  "auth.email": "Your e-mail",
+  "auth.password": "Password",
+  "auth.password2": "Repeat password",
+  "auth.fullName": "Full Name",
+  "auth.login": "Login",
+  "auth.register": "Create Account",
+  "auth.Unauthorized": "Login not successeful",
+  "auth.regfail": "Failed to register user",
+  "employee.fields.firstname": "Firstname",
+  "employee.fields.lastname": "Surname",
+  "employee.fields.description": "Description",
+  "$vuetify": {
+    "dataIterator": {
+      "rowsPerPageText": "Items per page:",
+      "rowsPerPageAll": "All",
+      "pageText": "{0}-{1} of {2}",
+      "noResultsText": "No matching records found",
+      "nextPage": "Next page",
+      "prevPage": "Previous page"
+    },
+    "dataTable": {
+      "rowsPerPageText": "Rows per page:"
+    },
+    "noDataText": "No data available"
+  }
 }

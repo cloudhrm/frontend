@@ -13,5 +13,5 @@ const LoginForm = () => import('../components/LoginForm.vue')
     LoginForm
   }
 })
-export default class Login extends Vue {}
+export default class Login extends Vue { }
 </script>
