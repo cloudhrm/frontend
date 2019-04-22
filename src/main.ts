@@ -2,6 +2,7 @@ import Vue from 'vue'
 import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
+import { apolloProvider } from './plugins/apollo'
 import './registerServiceWorker'
 import i18n from './i18n'
 import lv from 'vee-validate/dist/locale/lv'
@@ -24,6 +25,7 @@ Vue.use(VeeValidate, {
 Vue.config.productionTip = false
 
 new Vue({
+  provide: apolloProvider.provide(),
   router,
   i18n,
   render: (h) => h(App)

@@ -7,10 +7,24 @@
 
 <script>
 import { Component, Vue } from 'vue-property-decorator'
+import { gql } from 'apollo-boost'
 
 @Component({
   components: {
-  }
+  },
+  // apollo: {
+  //   query: gql`
+  //     query {
+  //       me {
+  //         name
+  //         email
+  //         groups {
+  //           name
+  //         }
+  //       }
+  //     }
+  //   `
+  // }
 })
 export default class Home extends Vue { }
 </script>
