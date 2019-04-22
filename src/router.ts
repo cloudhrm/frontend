@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Home from './components/Home.vue'
 
 Vue.use(Router)
 
@@ -17,25 +17,25 @@ export default new Router({
       path: '/login/',
       name: 'login',
       component: () =>
-        import(/* webpackChunkName: "login" */ '@/views/Login.vue')
+        import(/* webpackChunkName: "login" */ '@/components/auth/Login.vue')
     },
     {
       path: '/register/',
       name: 'register',
       component: () =>
-        import(/* webpackChunkName: "register" */ '@/views/Register.vue')
+        import(/* webpackChunkName: "register" */ '@/components/auth/Register.vue')
     },
     {
       path: '/403',
       name: '403',
       component: () =>
-        import(/* webpackChunkName: "403" */ '@/views/Code403.vue')
+        import(/* webpackChunkName: "403" */ '@/components/auth/Code403.vue')
     },
     {
       path: '/about',
       name: 'about',
       component: () =>
-        import(/* webpackChunkName: "about" */ '@/views/About.vue')
+        import(/* webpackChunkName: "about" */ '@/components/About.vue')
     }
   ]
 })

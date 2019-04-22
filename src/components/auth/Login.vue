@@ -1,17 +1,17 @@
 <template>
   <v-container grid-list-xs>
-    <register-form></register-form>
+    <login-form></login-form>
   </v-container>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-const RegisterForm = () => import('../components/RegisterForm.vue')
+const LoginForm = () => import('./LoginForm.vue')
 
 @Component({
   components: {
-    RegisterForm
+    LoginForm
   }
 })
-export default class Register extends Vue {}
+export default class Login extends Vue { }
 </script>
