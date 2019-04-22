@@ -116,10 +116,17 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import users from './store/users.module'
+
 
 @Component({})
 export default class App extends Vue {
   private drawer = false
+
+  get logged() {
+    return users.logged
+  }
+
 }
 
 </script>
