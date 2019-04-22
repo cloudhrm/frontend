@@ -1,5 +1,6 @@
 <template>
   <div>
+    <v-btn color="primary">text</v-btn>
   </div>
 </template>
 
