@@ -13,6 +13,12 @@ export default new Router({
       component: Home
     },
     {
+      path: '/cv/',
+      name: 'cv',
+      component: () =>
+      import(/* webpackChunkName: "cv" */ '@/components/cv/CV.vue')
+    },
+    {
       path: '/login/',
       name: 'login',
       component: () =>

@@ -29,12 +29,12 @@
             value="true"
           >
             <template v-slot:activator>
-              <v-list-tile>
+              <v-list-tile to="/cv">
                 <v-list-tile-title>CV</v-list-tile-title>
               </v-list-tile>
             </template>
 
-            <v-list-tile @click="">
+            <v-list-tile to="/cv">
               <v-list-tile-title>Education</v-list-tile-title>
               <v-list-tile-action>
                 <v-icon>school</v-icon>
