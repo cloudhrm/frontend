@@ -19,10 +19,28 @@ const router = new Router({
       }
     },
     {
-      path: '/cv/',
+      path: '/me/',
+      name: 'me',
+      component: () =>
+        import(/* webpackChunkName: "me" */ '@/components/me/Me.vue'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/me/wizard',
+      name: 'wizard',
+      component: () =>
+        import(/* webpackChunkName: "wizard" */ '@/components/me/Wizard.vue'),
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/me/cv/',
       name: 'cv',
       component: () =>
-        import(/* webpackChunkName: "cv" */ '@/components/cv/CV.vue'),
+        import(/* webpackChunkName: "cv" */ '@/components/me/cv/CV.vue'),
       meta: {
         requiresAuth: true
       }

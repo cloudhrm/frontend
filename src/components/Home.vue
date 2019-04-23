@@ -1,7 +1,7 @@
 <template>
   <v-container>
-    <h1>This is an Home page</h1>
-    <v-btn color="primary">text</v-btn>
+    <h1>Welcome to CloudHRM</h1>
+    <h3>What you are up for today?</h3>
   </v-container>
 </template>
 

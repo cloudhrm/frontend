@@ -20,7 +20,7 @@
           value="true"
         >
           <template v-slot:activator>
-            <v-list-tile>
+            <v-list-tile to="/me">
               <v-list-tile-title>Me</v-list-tile-title>
             </v-list-tile>
           </template>
@@ -30,7 +30,7 @@
             value="true"
           >
             <template v-slot:activator>
-              <v-list-tile to="/cv">
+              <v-list-tile to="/me/cv">
                 <v-list-tile-title>CV</v-list-tile-title>
               </v-list-tile>
             </template>
