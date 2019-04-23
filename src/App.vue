@@ -2,6 +2,7 @@
   <v-app>
     <!-- Horizontal navbar -->
     <v-navigation-drawer
+      v-if="logged"
       app
       clipped
       v-model="drawer"
@@ -51,7 +52,10 @@
       clipped-left
       dark
     >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon
+        v-if="logged"
+        @click.stop="drawer = !drawer"
+      ></v-toolbar-side-icon>
       <v-toolbar-title class="mr-5">
         <router-link
           to="/"
@@ -63,6 +67,7 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-text-field
+        v-if="logged"
         name="search"
         id="search"
         flex
