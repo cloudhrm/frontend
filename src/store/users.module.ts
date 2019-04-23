@@ -45,6 +45,7 @@ class UsersModule extends VuexModule {
   @Mutation
   public logOut() {
     this.me = null
+    localStorage.setItem(AUTH_TOKEN_NAME, '')
   }
 
   @Action
