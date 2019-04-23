@@ -55,7 +55,7 @@ class UsersModule extends VuexModule {
         variables: userLogin
       })
       if (data && data.login && data.login.token) {
-        localStorage.setItem(AUTH_TOKEN_NAME, data.login.token)
+        localStorage.setItem(AUTH_TOKEN_NAME, JSON.stringify(data.login))
         this.setMe(data.login)
       } else {
         this.setError('Not able to get token')
@@ -73,7 +73,7 @@ class UsersModule extends VuexModule {
         variables: userRegister
       })
       if (data && data.signup && data.signup.token) {
-        localStorage.setItem(AUTH_TOKEN_NAME, data.signup.token)
+        localStorage.setItem(AUTH_TOKEN_NAME, JSON.stringify(data.signup))
         this.setMe(data.signup)
       } else {
         this.setError('Not able to get token')
