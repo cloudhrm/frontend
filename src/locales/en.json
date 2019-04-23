@@ -13,7 +13,7 @@
   "auth.email": "Your e-mail",
   "auth.password": "Password",
   "auth.password2": "Repeat password",
-  "auth.fullName": "Full Name",
+  "auth.name": "Full Name",
   "auth.login": "Login",
   "auth.register": "Create Account",
   "auth.Unauthorized": "Login not successeful",

@@ -20,15 +20,15 @@
               type="error"
             >{{ $t(errorMsg) }}</v-alert>
             <v-text-field
-              v-model="auth.username"
+              v-model="auth.email"
               :counter="10"
-              :label="$t('auth.username')"
-              :error-messages="errors.collect('username')"
-              data-vv-name="username"
-              :data-vv-as="`'${$t('auth.username')}''`"
+              :label="$t('auth.email')"
+              :error-messages="errors.collect('email')"
+              data-vv-name="email"
+              :data-vv-as="`'${$t('auth.email')}''`"
               v-validate="'required'"
-              @input="$validator.validate('username')"
-              @blur="$validator.validate('username')"
+              @input="$validator.validate('email')"
+              @blur="$validator.validate('email')"
               required
             ></v-text-field>
             <v-text-field
@@ -52,7 +52,7 @@
             <v-btn
               type="submit"
               @click="submit"
-              :disabled="(auth.username === '') || ((!dirty) || (!valid))"
+              :disabled="(auth.email === '') || ((!dirty) || (!valid))"
               flat
             >{{ $t('auth.login') }}</v-btn>
             <v-btn
@@ -70,16 +70,16 @@
 import { Component, Prop, Vue, Inject } from 'vue-property-decorator'
 import { Route } from 'vue-router'
 import VeeValidate from 'vee-validate'
+import users from '../../store/users.module'
 
 @Component({})
 export default class LoginForm extends Vue {
   private valid = false
   private auth = {
-    username: '',
+    email: '',
     password: ''
   }
   private showpass = false
-  private showpass2 = false
   private alert = false
   private errorMsg = ''
 
@@ -92,17 +92,17 @@ export default class LoginForm extends Vue {
   }
 
   private async submit() {
-    // await users.login(this.auth)
-    // if (!users.error) {
-    //   if (this.$route.query && this.$route.query.next) {
-    //     this.$router.push(this.$route.query.next as string)
-    //   } else {
-    //     this.$router.push('/')
-    //   }
-    // } else {
-    //   this.alert = true
-    //   this.errorMsg = 'auth.Unauthorized'
-    // }
+    await users.login(this.auth)
+    if (!users.error) {
+      if (this.$route.query && this.$route.query.next) {
+        this.$router.push(this.$route.query.next as string)
+      } else {
+        this.$router.push('/')
+      }
+    } else {
+      this.alert = true
+      this.errorMsg = 'auth.Unauthorized'
+    }
   }
 }
 </script>

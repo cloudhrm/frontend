@@ -1,13 +1,14 @@
 import {
   Module,
   VuexModule,
-  MutationAction,
   getModule,
   Mutation,
   Action
 } from 'vuex-module-decorators'
 import store from '@/store'
 import { Me, UserLogin, UserRegister } from './users.model'
+import { SIGNUP_USER, LOGIN_USER } from './users.queries'
+import { apolloClient, AUTH_TOKEN_NAME } from '@/plugins/apollo'
 
 @Module({
   namespaced: true,
@@ -33,7 +34,6 @@ class UsersModule extends VuexModule {
 
   @Mutation
   public setMe(me: Me) {
-    // axios.defaults.headers.common.Authorization = `Bearer ${me.token}`
     this.me = me
   }
 
@@ -50,27 +50,38 @@ class UsersModule extends VuexModule {
   @Action
   public async login(userLogin: UserLogin) {
     try {
-      // const { data } = await axios.post('/api/auth/local', userLogin)
-      // if (data && data.token) {
-      //   axios.defaults.headers.common.Authorization = `Bearer ${data.token}`
-      //   localStorage.setItem('bda-user', JSON.stringify(data))
-      //   return { user: data as User, error: null }
-      // } else {
-      //   return { user: {}, error: data.error }
-      // }
+      const { data } = await apolloClient.mutate({
+        mutation: LOGIN_USER,
+        variables: userLogin
+      })
+      if (data && data.login && data.login.token) {
+        localStorage.setItem(AUTH_TOKEN_NAME, data.login.token)
+        this.setMe(data.login)
+      } else {
+        this.setError('Not able to get token')
+      }
     } catch (error) {
-      // return { user: null, error: error.message }
+      this.setError(error.message)
     }
   }
 
-  // @Action
-  // public async register(userRegister: UserRegister) {
-  //   try {
-  //     await axios.post('/api/auth/local/register', userRegister)
-  //   } catch (error) {
-  //     this.setError(error.message)
-  //   }
-  // }
+  @Action
+  public async register(userRegister: UserRegister) {
+    try {
+      const { data } = await apolloClient.mutate({
+        mutation: SIGNUP_USER,
+        variables: userRegister
+      })
+      if (data && data.signup && data.signup.token) {
+        localStorage.setItem(AUTH_TOKEN_NAME, data.signup.token)
+        this.setMe(data.signup)
+      } else {
+        this.setError('Not able to get token')
+      }
+    } catch (error) {
+      this.setError(error.message)
+    }
+  }
 }
 
 export default getModule(UsersModule)

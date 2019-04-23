@@ -5,9 +5,9 @@ import VueApollo from 'vue-apollo'
 Vue.use(VueApollo)
 
 // Name of the localStorage item
-const AUTH_TOKEN_NAME = 'apollo-token'
+export const AUTH_TOKEN_NAME = 'cloud-hrm-token'
 
-const defaultClient = new ApolloClient({
+export const apolloClient = new ApolloClient({
   uri: 'http://localhost:4000',
   fetchOptions: {
     credentials: 'include'
@@ -36,4 +36,4 @@ const defaultClient = new ApolloClient({
   // }
 })
 
-export const apolloProvider = new VueApollo({ defaultClient })
+export const apolloProvider = new VueApollo({ defaultClient: apolloClient })

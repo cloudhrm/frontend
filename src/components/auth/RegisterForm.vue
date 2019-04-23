@@ -20,15 +20,15 @@
               type="error"
             >{{ $t(errorMsg) }}</v-alert>
             <v-text-field
-              v-model="auth.fullName"
+              v-model="auth.name"
               :counter="30"
-              :label="$t('auth.fullName')"
-              :error-messages="errors.collect('fullname')"
-              data-vv-name="fullname"
-              :data-vv-as="`'${$t('auth.fullName')}''`"
+              :label="$t('auth.name')"
+              :error-messages="errors.collect('name')"
+              data-vv-name="name"
+              :data-vv-as="`'${$t('auth.name')}''`"
               v-validate="'required'"
-              @input="$validator.validate('fullname')"
-              @blur="$validator.validate('fullname')"
+              @input="$validator.validate('name')"
+              @blur="$validator.validate('name')"
               required
             ></v-text-field>
             <v-text-field
@@ -41,18 +41,6 @@
               v-validate="'required|email'"
               @input="$validator.validate('email')"
               @blur="$validator.validate('email')"
-              required
-            ></v-text-field>
-            <v-text-field
-              v-model="auth.username"
-              :counter="30"
-              :label="$t('auth.username')"
-              :error-messages="errors.collect('username')"
-              data-vv-name="username"
-              :data-vv-as="`'${$t('auth.username')}''`"
-              v-validate="'required'"
-              @input="$validator.validate('username')"
-              @blur="$validator.validate('username')"
               required
             ></v-text-field>
             <v-text-field
@@ -104,15 +92,15 @@
 <script lang="ts">
 import { Component, Prop, Vue, Inject } from 'vue-property-decorator'
 import { Route } from 'vue-router'
+import users from '../../store/users.module'
 
 @Component({})
 export default class RegisterForm extends Vue {
   @Inject('$validator') public $validator!: any
   private valid = false
   private auth = {
-    fullName: '',
+    name: '',
     email: '',
-    username: '',
     password: '',
     password2: ''
   }
@@ -126,17 +114,17 @@ export default class RegisterForm extends Vue {
   }
 
   private async submit() {
-    // await users.register(this.auth)
-    // if (!users.error) {
-    //   if (this.$route.query && this.$route.query.next) {
-    //     this.$router.push(this.$route.query.next as string)
-    //   } else {
-    //     this.$router.push('/login')
-    //   }
-    // } else {
-    //   this.alert = true
-    //   this.errorMsg = 'auth.regfail'
-    // }
+    await users.register(this.auth)
+    if (!users.error) {
+      if (this.$route.query && this.$route.query.next) {
+        this.$router.push(this.$route.query.next as string)
+      } else {
+        this.$router.push('/')
+      }
+    } else {
+      this.alert = true
+      this.errorMsg = 'auth.regfail'
+    }
   }
 }
 </script>

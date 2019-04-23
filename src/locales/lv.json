@@ -13,7 +13,7 @@
   "auth.email": "E-pasts",
   "auth.password": "Parole",
   "auth.password2": "Parole atkārtoti",
-  "auth.fullName": "Vārds Uzvārds",
+  "auth.name": "Vārds Uzvārds",
   "auth.login": "Pieslēgties",
   "auth.register": "Izveidot kontu",
   "auth.Unauthorized": "Pieslēgšanās neizdevās",

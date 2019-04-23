@@ -93,7 +93,7 @@
           slot="activator"
         >
           <v-avatar size="30px">
-            <v-gravatar :email="email" />
+            <v-gravatar :email="me.user.email" />
           </v-avatar>
         </v-btn>
         <v-list>
@@ -125,6 +125,10 @@ export default class App extends Vue {
 
   get logged() {
     return users.logged
+  }
+
+  get me() {
+    return users.me
   }
 
 }
