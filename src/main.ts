@@ -26,7 +26,7 @@ Vue.use(VeeValidate, {
 Vue.config.productionTip = false
 
 new Vue({
-  provide: apolloProvider.provide(),
+  apolloProvider,
   router,
   store,
   i18n,
