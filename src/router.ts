@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './components/Home.vue'
-import Code403 from './components/auth/Code403.vue'
 import users from './store/users.module'
 import { AUTH_TOKEN_NAME } from './plugins/apollo'
 
@@ -12,14 +11,6 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home,
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/me/',
       name: 'me',
       component: () =>
         import(/* webpackChunkName: "me" */ '@/components/me/Me.vue'),
@@ -28,16 +19,7 @@ const router = new Router({
       }
     },
     {
-      path: '/me/wizard',
-      name: 'wizard',
-      component: () =>
-        import(/* webpackChunkName: "wizard" */ '@/components/me/Wizard.vue'),
-      meta: {
-        requiresAuth: true
-      }
-    },
-    {
-      path: '/me/cv/',
+      path: '/cv/',
       name: 'cv',
       component: () =>
         import(/* webpackChunkName: "cv" */ '@/components/me/cv/CV.vue'),

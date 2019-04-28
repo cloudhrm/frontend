@@ -8,40 +8,32 @@
       v-model="drawer"
     >
       <v-list>
-        <v-list-tile to="/">
-          <v-list-tile-action>
-            <v-icon>home</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Home</v-list-tile-title>
-        </v-list-tile>
-
         <v-list-group
-          prepend-icon="account_circle"
-          value="true"
+          v-for="item in items"
+          :key="item.title"
+          :prepend-icon="item.icon"
         >
-          <template v-slot:activator>
-            <v-list-tile to="/me">
-              <v-list-tile-title>Me</v-list-tile-title>
-            </v-list-tile>
-          </template>
-          <v-list-group
-            no-action
-            sub-group
-            value="true"
+          <v-list-tile
+            to="/"
+            slot="activator"
           >
-            <template v-slot:activator>
-              <v-list-tile to="/me/cv">
-                <v-list-tile-title>CV</v-list-tile-title>
-              </v-list-tile>
-            </template>
-
-            <v-list-tile to="/cv">
-              <v-list-tile-title>Education</v-list-tile-title>
-              <v-list-tile-action>
-                <v-icon>school</v-icon>
-              </v-list-tile-action>
-            </v-list-tile>
-          </v-list-group>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+          <v-list-tile
+            v-for="subItem in item.items"
+            :key="subItem.title"
+            :to="subItem.action"
+            sub-group
+          >
+            <v-list-tile-action>
+              <v-icon>{{ subItem.icon }}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
         </v-list-group>
       </v-list>
     </v-navigation-drawer>
@@ -127,6 +119,20 @@ import users from './store/users.module'
 @Component({})
 export default class App extends Vue {
   private drawer = false
+  private items = [
+    {
+      action: '/',
+      icon: 'account_circle',
+      title: 'Me',
+      items: [
+        {
+          action: '/cv',
+          icon: 'info',
+          title: 'CV'
+        }
+      ]
+    }
+  ]
 
   get logged() {
     return users.logged

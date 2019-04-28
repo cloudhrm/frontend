@@ -1,15 +1,20 @@
 <template>
   <v-container>
-    <h1>You do not have any personal information</h1>
-    <v-list>
-      <v-list-tile avatar>
-        <v-list-tile avatar>
-          Create CV
-        </v-list-tile>
-        <v-list-tile avatar>
-          Create company
-        </v-list-tile>
-      </v-list-tile>
-    </v-list>
+    <v-card>
+      <v-card-title primary-title>
+        <h1>You do not have any personal information</h1>
+      </v-card-title>
+      <v-card-text>
+        Your CV is empty.<br>
+        Please start with filling in your employee details
+      </v-card-text>
+      <v-card-actions>
+        <v-btn
+          color="success"
+          to="/cv"
+        >Go to CV</v-btn>
+      </v-card-actions>
+    </v-card>
+
   </v-container>
 </template>
