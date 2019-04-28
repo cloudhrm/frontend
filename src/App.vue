@@ -27,12 +27,12 @@
             :to="subItem.action"
             sub-group
           >
-            <v-list-tile-action>
-              <v-icon>{{ subItem.icon }}</v-icon>
-            </v-list-tile-action>
             <v-list-tile-content>
               <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
             </v-list-tile-content>
+            <v-list-tile-action>
+              <v-icon>{{ subItem.icon }}</v-icon>
+            </v-list-tile-action>
           </v-list-tile>
         </v-list-group>
       </v-list>
@@ -127,8 +127,8 @@ export default class App extends Vue {
       items: [
         {
           action: '/cv',
-          icon: 'info',
-          title: 'CV'
+          icon: 'assignment_ind',
+          title: 'Ciriculum Vitae'
         }
       ]
     }
