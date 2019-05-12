@@ -11,7 +11,7 @@
       <v-card-actions>
         <v-btn
           color="success"
-          to="/cv"
+          to="/cv/details"
         >Go to CV</v-btn>
       </v-card-actions>
     </v-card>

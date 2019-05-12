@@ -48,28 +48,17 @@
         v-if="logged"
         @click.stop="drawer = !drawer"
       ></v-toolbar-side-icon>
-      <v-toolbar-title class="mr-5">
-        <router-link
-          to="/"
-          tag="span"
-          style="cursor: pointer"
-        >
-          Cloud HRM
-        </router-link>
-      </v-toolbar-title>
+      <router-link
+        to="/"
+        tag="span"
+        style="cursor: pointer"
+      >
+        <v-toolbar-title class="mr-5 ml-5">
+          <hrm-logo />
+        </v-toolbar-title>
+      </router-link>
       <v-spacer></v-spacer>
-      <v-text-field
-        v-if="logged"
-        name="search"
-        id="search"
-        flex
-        append-icon="search"
-        placeholder="Search"
-        color="white"
-        single-line
-        hide-details
-        class="hidden-xs-only"
-      ></v-text-field>
+      <router-view name="childMenu"></router-view>
       <v-btn
         v-if="(this.$route.path !== '/login') && (!logged)"
         to="/login"
@@ -114,9 +103,14 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 import users from './store/users.module'
+import HrmLogo from './components/HrmLogo.vue'
 
 
-@Component({})
+@Component({
+  components: {
+    HrmLogo
+  }
+})
 export default class App extends Vue {
   private drawer = false
   private items = [
@@ -126,9 +120,9 @@ export default class App extends Vue {
       title: 'Me',
       items: [
         {
-          action: '/cv',
+          action: '/cv/details',
           icon: 'assignment_ind',
-          title: 'Ciriculum Vitae'
+          title: 'Ciriculum Vitae',
         }
       ]
     }

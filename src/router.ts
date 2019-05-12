@@ -21,8 +21,27 @@ const router = new Router({
     {
       path: '/cv/',
       name: 'cv',
-      component: () =>
-        import(/* webpackChunkName: "cv" */ '@/components/me/cv/CV.vue'),
+      components: {
+        default: () =>
+          import(/* webpackChunkName: "cv" */ '@/components/me/cv/CV.vue'),
+        childMenu: () =>
+          import(/* webpackChunkName: "cv" */ '@/components/me/cv/EmpChildMenu.vue')
+      },
+      children: [
+        {
+          path: 'details',
+          component: () =>
+            import(/* webpackChunkName: "education" */ '@/components/me/cv/EmpEmployeeDetails.vue'),
+        }, {
+          path: 'education',
+          component: () =>
+            import(/* webpackChunkName: "education" */ '@/components/me/cv/EmpEducation.vue'),
+        }, {
+          path: 'experience',
+          component: () =>
+            import(/* webpackChunkName: "education" */ '@/components/me/cv/EmpExperience.vue'),
+        }
+      ],
       meta: {
         requiresAuth: true
       }
