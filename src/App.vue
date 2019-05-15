@@ -14,7 +14,7 @@
           :prepend-icon="item.icon"
         >
           <v-list-tile
-            to="/"
+            :to="item.action"
             slot="activator"
           >
             <v-list-tile-content>
@@ -58,7 +58,7 @@
         </v-toolbar-title>
       </router-link>
       <v-spacer></v-spacer>
-      <router-view name="childMenu"></router-view>
+      <router-view name="menu"></router-view>
       <v-btn
         v-if="(this.$route.path !== '/login') && (!logged)"
         to="/login"
@@ -123,6 +123,17 @@ export default class App extends Vue {
           action: '/cv/details',
           icon: 'assignment_ind',
           title: 'Ciriculum Vitae',
+        }
+      ]
+    }, {
+      action: '/admin',
+      icon: 'vpn_key',
+      title: 'Admin',
+      items: [
+        {
+          action: '/admin/users',
+          icon: 'supervised_user_circle',
+          title: 'Manage Users',
         }
       ]
     }

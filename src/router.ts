@@ -23,9 +23,9 @@ const router = new Router({
       name: 'cv',
       components: {
         default: () =>
-          import(/* webpackChunkName: "cv" */ '@/components/me/cv/CV.vue'),
-        childMenu: () =>
-          import(/* webpackChunkName: "cv" */ '@/components/me/cv/EmpChildMenu.vue')
+          import(/* webpackChunkName: "cv_default" */ '@/components/me/cv/CV.vue'),
+        menu: () =>
+          import(/* webpackChunkName: "cv_menu" */ '@/components/me/cv/EmpChildMenu.vue')
       },
       children: [
         {
