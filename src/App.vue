@@ -2,7 +2,6 @@
   <v-app>
     <!-- Horizontal navbar -->
     <v-navigation-drawer
-      v-if="logged"
       app
       clipped
       v-model="drawer"
@@ -44,10 +43,7 @@
       clipped-left
       dark
     >
-      <v-toolbar-side-icon
-        v-if="logged"
-        @click.stop="drawer = !drawer"
-      ></v-toolbar-side-icon>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <router-link
         to="/"
         tag="span"
@@ -59,35 +55,6 @@
       </router-link>
       <v-spacer></v-spacer>
       <router-view name="menu"></router-view>
-      <v-btn
-        v-if="(this.$route.path !== '/login') && (!logged)"
-        to="/login"
-        flat
-      >
-        <v-icon
-          left
-          class="hidden-sm-only"
-        >lock_open</v-icon>
-        {{ $t("auth.sigin") }}
-      </v-btn>
-      <v-menu
-        v-if="logged"
-        offset-y
-      >
-        <v-btn
-          flat
-          slot="activator"
-        >
-          <v-avatar size="30px">
-            <v-gravatar :email="me.user.email" />
-          </v-avatar>
-        </v-btn>
-        <v-list>
-          <v-list-tile @click="logOut()">
-            <v-list-tile-title class="text-xs-center">Iziet</v-list-tile-title>
-          </v-list-tile>
-        </v-list>
-      </v-menu>
     </v-toolbar>
     <!-- App content -->
     <main>
@@ -102,7 +69,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import users from './store/users.module'
 import HrmLogo from './components/HrmLogo.vue'
 
 
@@ -138,20 +104,6 @@ export default class App extends Vue {
       ]
     }
   ]
-
-  get logged() {
-    return users.logged
-  }
-
-  get me() {
-    return users.me
-  }
-
-  private logOut() {
-    users.logOut()
-    this.$router.push('/login')
-  }
-
 }
 
 </script>
