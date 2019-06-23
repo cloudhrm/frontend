@@ -3,8 +3,8 @@
     <!-- Horizontal navbar -->
     <v-navigation-drawer
       app
-      clipped
-      v-model="drawer"
+      permanent
+      mini-variant
     >
       <v-list>
         <v-list-group
@@ -36,26 +36,6 @@
         </v-list-group>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar
-      fixed
-      app
-      color="primary"
-      clipped-left
-      dark
-    >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <router-link
-        to="/"
-        tag="span"
-        style="cursor: pointer"
-      >
-        <v-toolbar-title class="mr-5 ml-5">
-          <hrm-logo />
-        </v-toolbar-title>
-      </router-link>
-      <v-spacer></v-spacer>
-      <router-view name="menu"></router-view>
-    </v-toolbar>
     <!-- App content -->
     <main>
       <v-content>
