@@ -11,6 +11,8 @@ import ru from 'vee-validate/dist/locale/ru'
 import en from 'vee-validate/dist/locale/en'
 import VeeValidate from 'vee-validate'
 import Gravatar from 'vue-gravatar'
+import 'roboto-fontface/css/roboto/roboto-fontface.css'
+import 'material-design-icons-iconfont/dist/material-design-icons.css'
 
 Vue.component('v-gravatar', Gravatar)
 
