@@ -64,24 +64,10 @@ export default class App extends Vue {
       action: '/',
       icon: 'account_circle',
       title: 'Me',
-      items: [
-        {
-          action: '/cv/details',
-          icon: 'assignment_ind',
-          title: 'Ciriculum Vitae',
-        }
-      ]
     }, {
       action: '/admin',
       icon: 'vpn_key',
       title: 'Admin',
-      items: [
-        {
-          action: '/admin/users',
-          icon: 'supervised_user_circle',
-          title: 'Manage Users',
-        }
-      ]
     }
   ]
 }
