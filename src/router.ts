@@ -8,12 +8,17 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'me',
+      name: 'list',
       component: () =>
-        import(/* webpackChunkName: "me" */ '@/components/me/Me.vue'),
+        import(/* webpackChunkName: "deliveryList" */ '@/components/delivery/Index.vue'),
       meta: {
         requiresAuth: true
       }
+    }, {
+      path: '/delivery',
+      name: 'delivery',
+      component: () =>
+        import(/* webpackChunkName: "about" */ '@/components/delivery/DeliveryForm.vue')
     }, {
       path: '/about',
       name: 'about',

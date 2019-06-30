@@ -2,11 +2,10 @@
   <v-container>
     <v-card>
       <v-card-title primary-title>
-        <h1>About app</h1>
+        <h1>This is a delivery form</h1>
       </v-card-title>
       <v-card-text>
-        Item tracking application <br>
-        Version: <br>
+        Delivery form body
       </v-card-text>
     </v-card>
   </v-container>

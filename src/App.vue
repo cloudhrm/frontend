@@ -7,33 +7,18 @@
       mini-variant
     >
       <v-list>
-        <v-list-group
+        <v-list-tile
           v-for="item in items"
           :key="item.title"
-          :prepend-icon="item.icon"
+          :to="item.action"
         >
-          <v-list-tile
-            :to="item.action"
-            slot="activator"
-          >
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-          <v-list-tile
-            v-for="subItem in item.items"
-            :key="subItem.title"
-            :to="subItem.action"
-            sub-group
-          >
-            <v-list-tile-content>
-              <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
-            </v-list-tile-content>
-            <v-list-tile-action>
-              <v-icon>{{ subItem.icon }}</v-icon>
-            </v-list-tile-action>
-          </v-list-tile>
-        </v-list-group>
+          <v-list-tile-action>
+            <v-icon>{{item.icon}}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
     <!-- App content -->
@@ -49,12 +34,10 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import HrmLogo from './components/HrmLogo.vue'
 
 
 @Component({
   components: {
-    HrmLogo
   }
 })
 export default class App extends Vue {
@@ -62,12 +45,16 @@ export default class App extends Vue {
   private items = [
     {
       action: '/',
-      icon: 'account_circle',
-      title: 'Me',
+      icon: 'list',
+      title: 'List',
     }, {
-      action: '/admin',
-      icon: 'vpn_key',
-      title: 'Admin',
+      action: '/delivery',
+      icon: 'assignment_ind',
+      title: 'Delivery',
+    }, {
+      action: '/about',
+      icon: 'question_answer',
+      title: 'about',
     }
   ]
 }
