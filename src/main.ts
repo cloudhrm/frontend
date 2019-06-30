@@ -3,12 +3,12 @@ import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { apolloProvider } from './plugins/apollo'
 import './registerServiceWorker'
 import i18n from './i18n'
 import lv from 'vee-validate/dist/locale/lv'
 import ru from 'vee-validate/dist/locale/ru'
 import en from 'vee-validate/dist/locale/en'
+import './plugins/database'
 import VeeValidate from 'vee-validate'
 import Gravatar from 'vue-gravatar'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
@@ -28,7 +28,6 @@ Vue.use(VeeValidate, {
 Vue.config.productionTip = false
 
 new Vue({
-  apolloProvider,
   router,
   store,
   i18n,
